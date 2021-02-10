@@ -30,11 +30,11 @@ const routes = [
             title:'首页'
         },
         children:[
-            {
-                // 这里就不需要写/了，因为这个重定向的路径和news与message属于同级目录
-                path:'/',
-                redirect:'news'
-            },
+            // {
+            //     // 这里就不需要写/了，因为这个重定向的路径和news与message属于同级目录
+            //     path:'/',
+            //     redirect:'news'
+            // },
             {
                 path:'news',
                 component:HomeNews
@@ -74,12 +74,12 @@ const router=new VueRouter({
     linkActiveClass:'active'
 })
 //前置守卫(guard)
-router.beforeEach((to,from,next)=>{
-    //从from跳转到to
-    document.title=to.matched[0].meta.title  //嵌套路由永远取第一个
-    console.log('++++')
-    next()
-})
+// router.beforeEach((to,from,next)=>{
+//     //从from跳转到to
+//     document.title=to.matched[0].meta.title  //嵌套路由永远取第一个
+//     console.log('++++')
+//     next()
+// })
 
 //后置钩子(hook)
 // router.afterEach((to,from)=>{

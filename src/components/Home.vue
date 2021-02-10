@@ -16,18 +16,29 @@ export default {
   name: "Home",
   data(){
     return {
-      message:'你好'
+      message:'你好',
+      path:'/home/news'
     }
   },
   created() {
     console.log('home created');
-    this.$router.push('home')
     // document.title='首页'
   },
   destroyed() {
     console.log('home destroyed');
-  }
-
+  },
+  activated() {
+    console.log('activated')
+    this.$router.push(this.path)
+  },
+  // deactivated() {
+  //   console.log('deactivated')
+  //   this.path=this.$route.path
+  // }
+beforeRouteLeave(to,from,next){
+  this.path=this.$route.path
+  next()
+}
 }
 </script>
 
