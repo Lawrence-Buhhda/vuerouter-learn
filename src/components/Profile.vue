@@ -14,6 +14,12 @@ export default {
     //所有的组件都继承来组Vue类的原型
     console.log(this.$route)
     console.log(this.$router)
+  },
+  created() {
+    console.log('Profile created')
+  },
+  destroyed() {
+    console.log('Profile destroyed')
   }
 }
 </script>

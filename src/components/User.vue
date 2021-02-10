@@ -19,6 +19,12 @@ export default {
   //   console.log('created')
   //   document.title='用户'
   // }
+  created() {
+    console.log('User created')
+  },
+  destroyed() {
+    console.log('User destroyed')
+  }
 }
 </script>
 

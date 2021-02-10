@@ -8,10 +8,13 @@
 <script>
 export default {
   name: "About",
-  // created() {
-  //   console.log('created')
-  //   document.title='关于'
-  // }
+  created() {
+    console.log('About created')
+    // document.title='关于'
+  },
+  destroyed() {
+    console.log('About destroyed')
+  }
 }
 </script>
 
