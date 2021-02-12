@@ -7,7 +7,10 @@
     <div v-else>
       <slot name="item-icon-active"></slot>
     </div>
-    <div :class="{active:isActive}">
+<!--    <div :class="{active:isActive}">-->
+<!--      <slot name="item-text"></slot>-->
+<!--    </div>-->
+    <div :style="activeStyle">
       <slot name="item-text"></slot>
     </div>
 
@@ -20,11 +23,27 @@
 export default {
   name: 'TabBarItem',
   props: {
-    path: String
+    path: String,
+    activeColor:{
+      type:String,
+      default:'red'
+    }
   },
   data () {
     return {
-      isActive: false
+      // isActive: false
+    }
+  },
+  computed:{
+    isActive(){
+      //判断一下当active的路径是否包含 父组件传入的path
+      // /home -> item1(/home) =true
+      // /home -> item1(/category) =false
+      // indexOf 返回字符所在的索引
+      return this.$route.path.indexOf(this.path) !==-1
+    },
+    activeStyle(){
+      return this.isActive ? {color:this.activeColor}:{}
     }
   },
   methods: {
@@ -53,7 +72,8 @@ export default {
   margin-bottom: 2px;
 }
 
-.active {
-  color: red;
-}
+/*.active {*/
+/*  color: red;*/
+/*}*/
+
 </style>
